@@ -1,9 +1,8 @@
 {
-   "/api": {
-"target": "http://myxpetask.runasp.net",
-"secure": false,
-"changeOrigin": true,
-"logLevel": "debug"
+    "/api": {
+      "target": "http://myxpetask.runasp.net",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
   }
-}
-  
