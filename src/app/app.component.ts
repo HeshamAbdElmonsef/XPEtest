@@ -8,7 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Candidate List';
-  baseURL = 'http://myxpetask.runasp.net/api/Candidates/Get-All';
+
+  // في وضع التطوير، سيتم تحويل "/api/Candidates" إلى "http://myxpetask.runasp.net/api/Candidates" عبر proxy.conf.json
+  baseURL = '/api/Candidates';
+
   Candidate: any[] = [];
   selectedFile: File | null = null;
   uploadMessage: string = '';
@@ -31,7 +34,7 @@ export class AppComponent {
     const formData = new FormData();
     formData.append('file', this.selectedFile);
 
-    this.http.post('http://myxpetask.runasp.net/api/Candidates/upload', formData)
+    this.http.post(`${this.baseURL}/upload`, formData)
       .subscribe({
         next: () => {
           this.uploadMessage = 'File uploaded successfully!';
@@ -44,7 +47,7 @@ export class AppComponent {
 
   loadCandidates(): void {
     this.loading = true;
-    this.http.get<any[]>(this.baseURL).subscribe({
+    this.http.get<any[]>(`${this.baseURL}/Get-All`).subscribe({
       next: (data) => {
         this.Candidate = data;
         this.loading = false;
