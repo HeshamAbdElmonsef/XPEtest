@@ -22,7 +22,10 @@ export class AppComponent {
   onFileSelected(event: any): void {
     if (event.target.files.length > 0) {
       this.selectedFile = event.target.files[0];
+
     }
+
+    this.uploadMessage='';
   }
 
   onUpload(): void {
