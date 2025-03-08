@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'Candidate List';
 
   // في وضع التطوير، سيتم تحويل "/api/Candidates" إلى "http://myxpetask.runasp.net/api/Candidates" عبر proxy.conf.json
-  baseURL = '/api/Candidates';
+  baseURL = 'https://xpe-task.runasp.net/api/Candidates';
 
   Candidate: any[] = [];
   selectedFile: File | null = null;
